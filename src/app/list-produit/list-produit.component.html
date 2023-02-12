@@ -1,0 +1,17 @@
+<p>list-produit works!</p>
+<form class="col-md-6">
+    <input type="text" name="c" [(ngModel)]="code" class="form-control col-md-6" placeholder="Search by code" />
+
+</form>
+<ol> 
+
+    <li *ngFor="let Produit of listProduit; let i=index" style="border:solid black" >Produit=Produit <button class="btn btn-sm btn-primary
+        "(click)="ajustertva(Produit) " [disabled]="Produit.tauxTVA==0.02"> Ajuster TVA </button>
+        <ul *ngIf="Produit.code==code || code==null" >  
+            <li>identifiant :{{Produit.idProduit}}</li>
+            <li>code :{{Produit.code}}</li>
+            <li>Prix Unitaire :{{Produit.prixUnitaire}}</li>
+            <li>Taux TVA :{{Produit.tauxTVA}}</li>
+        </ul>
+    </li>
+</ol>
